@@ -50,11 +50,12 @@ const renderer = new THREE.WebGLRenderer({
 renderer.setSize(sizes.width, sizes.height);
 
 const controls = new OrbitControls(camera, canvas);
-controls.target.y = 2;
-controls.update();
+controls.enableDamping = true;
 
 const tick = () => {
   renderer.render(scene, camera);
+
+  controls.update();
 
   window.requestAnimationFrame(tick);
 };
