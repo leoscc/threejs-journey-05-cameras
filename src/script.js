@@ -50,4 +50,14 @@ const renderer = new THREE.WebGLRenderer({
   canvas,
 });
 renderer.setSize(sizes.width, sizes.height);
-renderer.render(scene, camera);
+
+const tick = () => {
+  renderer.render(scene, camera);
+
+  camera.position.x = cursor.x;
+  camera.position.y = cursor.y;
+
+  window.requestAnimationFrame(tick);
+};
+
+tick();
