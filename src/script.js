@@ -40,7 +40,6 @@ const camera = new THREE.PerspectiveCamera(75, aspectRatio, 1, 1000);
 // camera.position.x = 2
 // camera.position.y = 2
 camera.position.z = 3;
-camera.lookAt(cubeMesh.position);
 scene.add(camera);
 
 // WebGL Renderer
@@ -52,8 +51,9 @@ renderer.setSize(sizes.width, sizes.height);
 const tick = () => {
   renderer.render(scene, camera);
 
-  camera.position.x = cursor.x;
-  camera.position.y = cursor.y;
+  camera.position.x = cursor.x * 5;
+  camera.position.y = cursor.y * 5;
+  camera.lookAt(cubeMesh.position);
 
   window.requestAnimationFrame(tick);
 };
