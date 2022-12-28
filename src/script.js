@@ -20,13 +20,22 @@ const sizes = {
 };
 
 // Camera
-const camera = new THREE.PerspectiveCamera(
-  75,
-  sizes.width / sizes.height,
+// const camera = new THREE.PerspectiveCamera(
+//   75,
+//   sizes.width / sizes.height,
+//   0.1, // near
+//   100 // far
+// );
+const camera = new THREE.OrthographicCamera(
+  -1, // left
+  1, // right
+  -1, // top
+  1, // bottom
   0.1, // near
   100 // far
 );
 camera.position.z = 3;
+camera.lookAt(cubeMesh.position);
 scene.add(camera);
 
 // WebGL Renderer
