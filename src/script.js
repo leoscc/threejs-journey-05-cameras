@@ -19,22 +19,20 @@ const sizes = {
   height: 600,
 };
 
+// mouse
+window.addEventListener("mousemove", (event) => {
+  console.log(event.clientX, event.clientY);
+});
+
 // Camera
-// const camera = new THREE.PerspectiveCamera(
-//   75,
-//   sizes.width / sizes.height,
-//   0.1, // near
-//   100 // far
-// );
 const aspectRatio = sizes.width / sizes.height;
-const camera = new THREE.OrthographicCamera(
-  -1 * aspectRatio, // left
-  1 * aspectRatio, // right
-  -1, // top
-  1, // bottom
-  0.1, // near
-  100 // far
-);
+const camera = new THREE.PerspectiveCamera(75, aspectRatio, 1, 1000);
+
+// const aspectRatio = sizes.width / sizes.height
+// const camera = new THREE.OrthographicCamera(- 1 * aspectRatio, 1 * aspectRatio, 1, - 1, 0.1, 100)
+
+// camera.position.x = 2
+// camera.position.y = 2
 camera.position.z = 3;
 camera.lookAt(cubeMesh.position);
 scene.add(camera);
