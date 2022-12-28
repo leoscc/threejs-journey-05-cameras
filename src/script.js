@@ -20,8 +20,16 @@ const sizes = {
 };
 
 // mouse
+const cursor = {
+  x: 0,
+  y: 0,
+};
+
 window.addEventListener("mousemove", (event) => {
-  console.log(event.clientX, event.clientY);
+  cursor.x = event.clientX / sizes.width - 0.5;
+  cursor.y = event.clientY / sizes.height - 0.5;
+
+  console.log(cursor.x, cursor.y);
 });
 
 // Camera
