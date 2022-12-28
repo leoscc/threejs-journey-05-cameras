@@ -51,8 +51,9 @@ renderer.setSize(sizes.width, sizes.height);
 const tick = () => {
   renderer.render(scene, camera);
 
-  camera.position.x = cursor.x * 5;
-  camera.position.y = cursor.y * 5;
+  camera.position.x = Math.sin(cursor.x * Math.PI * 2) * 2;
+  camera.position.z = Math.cos(cursor.x * Math.PI * 2) * 2;
+  camera.position.y = cursor.y * 3;
   camera.lookAt(cubeMesh.position);
 
   window.requestAnimationFrame(tick);
