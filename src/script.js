@@ -26,9 +26,10 @@ const sizes = {
 //   0.1, // near
 //   100 // far
 // );
+const aspectRatio = sizes.width / sizes.height;
 const camera = new THREE.OrthographicCamera(
-  -1, // left
-  1, // right
+  -1 * aspectRatio, // left
+  1 * aspectRatio, // right
   -1, // top
   1, // bottom
   0.1, // near
